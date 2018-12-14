@@ -349,7 +349,7 @@ endif;
  *
  * Example: <?php $moneris = Give_Moneris(); ?>
  *
- * @since 1.0
+ * @since 1.0.0
  *
  * @return Give_Moneris|bool
  */
