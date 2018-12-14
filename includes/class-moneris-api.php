@@ -1,6 +1,6 @@
 <?php
 
-namespace Give;
+namespace Give_Moneris;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
