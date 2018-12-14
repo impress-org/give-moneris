@@ -133,6 +133,8 @@ final class Give_Moneris {
 	 * @since 1.0.0
 	 */
 	public function includes() {
+		
+		require_once GIVE_MONERIS_PLUGIN_DIR . '/includes/admin/class-give-moneris-admin-settings.php';
 
 	}
 
