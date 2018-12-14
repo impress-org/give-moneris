@@ -8,6 +8,7 @@
  * @since     1.0.0
  */
 
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	 exit;
 }
@@ -33,4 +34,4 @@ function give_moneris_register_gateway( $gateways ) {
 
 }
 
-add_filter( 'give_payment_gateways', array( $this, 'give_moneris_register_gateway' ) );
+add_filter( 'give_payment_gateways', 'give_moneris_register_gateway' );
