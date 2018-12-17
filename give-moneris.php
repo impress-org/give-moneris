@@ -136,7 +136,9 @@ final class Give_Moneris {
 
 		require_once GIVE_MONERIS_PLUGIN_DIR . '/includes/admin/class-give-moneris-admin-settings.php';
 		require_once GIVE_MONERIS_PLUGIN_DIR . '/includes/admin/admin-filters.php';
+		require_once GIVE_MONERIS_PLUGIN_DIR . '/includes/misc-functions.php';
 		require_once GIVE_MONERIS_PLUGIN_DIR . '/includes/class-moneris-api.php';
+		require_once GIVE_MONERIS_PLUGIN_DIR . '/includes/class-give-moneris-gateway.php';
 
 	}
 
