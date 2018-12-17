@@ -57,29 +57,40 @@ if ( ! class_exists( 'Give_Moneris_Admin_Settings' ) ) {
 				
 				case 'moneris-settings':
 					
-					
 					$settings = array(
 						array(
 							'id'   => 'give_title_moneris',
 							'type' => 'title',
 						),
 						array(
-							'name'          => __( 'Access Token', 'give-moneris' ),
-							'desc'          => __( 'Enter the Access Token provided by Moneris for a specific country environment. Please confirm the base country you selected.', 'give-moneris' ),
-							'id'            => 'give_moneris_access_token',
-							'type'          => 'api_key',
+							'name' => __( 'Access Token', 'give-moneris' ),
+							'desc' => __( 'Enter the Access Token provided by Moneris for a specific country environment. Please confirm the base country you selected.', 'give-moneris' ),
+							'id'   => 'give_moneris_access_token',
+							'type' => 'api_key',
 						),
 						array(
-							'name'          => __( 'Store ID', 'give-moneris' ),
-							'desc'          => __( 'Enter the Store ID for which you want to accept the donations.', 'give-moneris' ),
-							'id'            => 'give_moneris_store_id',
-							'type'          => 'text',
+							'name' => __( 'Store ID', 'give-moneris' ),
+							'desc' => __( 'Enter the Store ID for which you want to accept the donations.', 'give-moneris' ),
+							'id'   => 'give_moneris_store_id',
+							'type' => 'text',
 						),
 						array(
-							'name'          => __( 'Collect Billing Details', 'give-moneris' ),
-							'desc'          => __( 'This option will enable the billing details section for Moneris which requires the donor\'s address to complete the donation. These fields are not required by Moneris to process the transaction, but you may have the need to collect the data.', 'give-moneris' ),
-							'id'            => 'give_moneris_collect_billing_details',
-							'type'          => 'checkbox',
+							'name'    => __( 'Statement Descriptor', 'give-moneris' ),
+							'desc'    => __( 'This is the text that appears on your donor\'s bank statements. Statement descriptors are limited to 22 characters including <code>/</code>, cannot use the special characters <code><</code>, <code>></code>, <code>\'</code>, or <code>"</code>, and must not consist solely of numbers. This is typically the name of your website or organization.', 'give-moneris' ),
+							'id'      => 'give_moneris_statement_descriptor',
+							'type'    => 'text',
+							'default' => sprintf(
+								/* translators: 1. Site name, 2. Text */
+								'%1$s/%2$s',
+								get_bloginfo( 'name' ),
+								__( 'Donation', 'give-moneris' )
+							),
+						),
+						array(
+							'name' => __( 'Collect Billing Details', 'give-moneris' ),
+							'desc' => __( 'This option will enable the billing details section for Moneris which requires the donor\'s address to complete the donation. These fields are not required by Moneris to process the transaction, but you may have the need to collect the data.', 'give-moneris' ),
+							'id'   => 'give_moneris_collect_billing_details',
+							'type' => 'checkbox',
 						),
 						array(
 							'id'   => 'give_title_moneris',
