@@ -79,12 +79,7 @@ if ( ! class_exists( 'Give_Moneris_Admin_Settings' ) ) {
 							'desc'    => __( 'This is the text that appears on your donor\'s bank statements. Statement descriptors are limited to 22 characters including <code>/</code>, cannot use the special characters <code><</code>, <code>></code>, <code>\'</code>, or <code>"</code>, and must not consist solely of numbers. This is typically the name of your website or organization.', 'give-moneris' ),
 							'id'      => 'give_moneris_statement_descriptor',
 							'type'    => 'text',
-							'default' => sprintf(
-								/* translators: 1. Site name, 2. Text */
-								'%1$s/%2$s',
-								get_bloginfo( 'name' ),
-								__( 'Donation', 'give-moneris' )
-							),
+							'default' => give_moneris_get_default_statement_descriptor(),
 						),
 						array(
 							'name' => __( 'Collect Billing Details', 'give-moneris' ),
