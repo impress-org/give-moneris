@@ -42,7 +42,7 @@ function give_moneris_process_refund( $donation_id, $new_status, $old_status ) {
 	
 	// Bail out, if processing refund is not allowed.
 	if ( false === $can_process_refund ) {
-		return;
+	    return;
 	}
 	
 	// Bail out, if already refunded.
@@ -57,7 +57,6 @@ function give_moneris_process_refund( $donation_id, $new_status, $old_status ) {
 		return;
 	}
 	
-	
 	try {
 		
 		$store_id       = give_get_option( 'give_moneris_store_id' );
@@ -67,7 +66,7 @@ function give_moneris_process_refund( $donation_id, $new_status, $old_status ) {
 			'txn_number'         => give_get_payment_transaction_id( $donation_id ),
 			'order_id'           => $donation_id,
 			'cust_id'            => give_get_payment_donor_id( $donation_id ),
-			'amount'             => give_get_payment_total( $donation_id ),
+			'amount'             => give_moneris_get_formatted_donation_amount( $donation_id ),
 			'crypt_type'         => 7, // @todo provide a filter to change the crypt type.
 			'dynamic_descriptor' => give_moneris_get_statement_descriptor(),
 		);
@@ -82,11 +81,13 @@ function give_moneris_process_refund( $donation_id, $new_status, $old_status ) {
 		$transaction_id     = $response->getTxnNumber();
 
 		if ( $transaction_id ) {
+		    
+		    // Add donation note for admin reference of the refund procedure to link with Moneris.
 			give_insert_payment_note(
 				$donation_id,
 				sprintf(
 					/* translators: 1. Refund ID */
-					esc_html__( 'Payment refunded in Moneris: %s', 'give-moneris' ),
+					esc_html__( 'Payment refunded in Moneris with transaction id: %s', 'give-moneris' ),
 					$transaction_id
 				)
 			);
