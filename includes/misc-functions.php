@@ -44,3 +44,22 @@ function give_moneris_get_statement_descriptor() {
 	return give_get_option( 'give_moneris_statement_descriptor', give_moneris_get_default_statement_descriptor() );
 	
 }
+
+/**
+ * This function will return formatted donation amount.
+ *
+ * @param int $donation_id Donation ID.
+ *
+ * @since 1.0.0
+ *
+ * @return string
+ */
+function give_moneris_get_formatted_donation_amount( $donation_id ) {
+	
+	return give_format_amount(
+		give_get_meta( $donation_id, '_give_payment_total', true ),
+		array(
+			'sanitize' => false
+		)
+	);
+}
