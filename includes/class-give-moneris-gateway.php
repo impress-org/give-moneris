@@ -126,7 +126,7 @@ class Give_Moneris_Gateway {
 			
 			$payment_object = array(
 				'type'               => 'purchase',
-				'order_id'           => $donation_id,
+				'order_id'           => give_moneris_get_unique_donation_id( $donation_id ),
 				'cust_id'            => give_get_payment_donor_id( $donation_id ),
 				'amount'             => $donation_data['post_data']['give-amount'],
 				'pan'                => $donation_data['card_info']['card_number'],
