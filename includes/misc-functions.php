@@ -63,3 +63,19 @@ function give_moneris_get_formatted_donation_amount( $donation_id ) {
 		)
 	);
 }
+
+/**
+ * This function is used to create a unique donation id to avoid payment processing error due to duplicate order id.
+ *
+ * @param int $donation_id Donation ID.
+ *
+ * @since 1.0.0
+ *
+ * @return string
+ */
+function give_moneris_get_unique_donation_id( $donation_id ) {
+	
+	$sequential_donation_id = Give()->seq_donation_number->get_serial_number( $donation_id );
+	
+	return "Give_{$donation_id}_{$sequential_donation_id}";
+}
