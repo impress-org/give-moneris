@@ -72,3 +72,14 @@ Moneris add-on for Give relies on several npm commands to get you started:
 * Commit the `package-lock.json` file. Read more about why [here](https://docs.npmjs.com/files/package-lock.json). 
 * Your editor should recognize the `.eslintrc` and `.editorconfig` files within the Repo's root directory. Please only submit PRs following those coding style rulesets. 
 * Read [CONTRIBUTING.md](https://github.com/impress-org/give/blob/master/CONTRIBUTING.md) - it contains more about contributing to GiveWP.
+
+## How to test this add-on? ##
+
+[Click here](https://developer.moneris.com/More/Testing/Testing%20a%20Solution) to get the testing credentials of Moneris. There are 2 different types of testing credentials and merchant resource manager URL present in that URL.
+
+1. For Canada account users.
+2. For US account users.
+
+Also, there is a list of test cards available which you can use to process a successful donation.
+
+**Please note:** If you use the credentials of Canada account, then set base country as `Canada`. If you use the credentials fo US account, then set base country as `United States`. If any other country is set as base country then processing the donation will throw error.
