@@ -84,7 +84,7 @@ class Give_Moneris_Gateway {
 	 * @return void
 	 */
 	public function process_donation( $donation_data ) {
-		
+
 		// Bailout, if the current gateway and the posted gateway mismatched.
 		if ( $this->id !== $donation_data['gateway'] ) {
 			return;
@@ -103,9 +103,11 @@ class Give_Moneris_Gateway {
 		
 		// No errors, proceed.
 		if ( ! $errors ) {
+
+			$donation_amount = $donation_data['price'];
 			
 			$args = array(
-				'price'           => $donation_data['price'],
+				'price'           => $donation_amount,
 				'give_form_title' => $donation_data['post_data']['give-form-title'],
 				'give_form_id'    => intval( $donation_data['post_data']['give-form-id'] ),
 				'give_price_id'   => isset( $donation_data['post_data']['give-price-id'] ) ? $donation_data['post_data']['give-price-id'] : '',
@@ -128,7 +130,7 @@ class Give_Moneris_Gateway {
 				'type'               => 'purchase',
 				'order_id'           => give_moneris_get_unique_donation_id( $donation_id ),
 				'cust_id'            => give_get_payment_donor_id( $donation_id ),
-				'amount'             => $donation_data['post_data']['give-amount'],
+				'amount'             => $donation_amount,
 				'pan'                => $donation_data['card_info']['card_number'],
 				'expdate'            => $expiry_date,
 				'crypt_type'         => 7, // @todo provide a filter to change the crypt type.
@@ -142,7 +144,7 @@ class Give_Moneris_Gateway {
 			
 			$https_post_object  = new Give_Moneris\mpgHttpsPost( $this->store_id, $this->access_token, $request_object );
 			$response           = $https_post_object->getMpgResponse();
-			
+
 			// Prepare Response Variables.
 			$response_code       = (int) $response->getResponseCode();
 			$is_payment_complete = (bool) $response->getComplete();
