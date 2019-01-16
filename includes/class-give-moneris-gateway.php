@@ -190,6 +190,25 @@ class Give_Moneris_Gateway {
 						// Send user back to checkout.
 						give_send_back_to_checkout( '?payment-mode=moneris' );
 						break;
+
+					default:
+
+						// Something went wrong outside of Moneris.
+						give_record_gateway_error(
+							__( 'Moneris Error', 'give-moneris' ),
+							sprintf(
+							/* translators: %s Exception error message. */
+								__( 'The Moneris Gateway declined the donation with an error. Details: %s', 'give-moneris' ),
+								$response->getMessage()
+							)
+						);
+
+						// Set Error to notify donor.
+						give_set_error( 'give_moneris_gateway_error', __( 'Payment Declined. Please try again.', 'give-moneris' ) );
+
+						// Send user back to checkout.
+						give_send_back_to_checkout( '?payment-mode=moneris' );
+						break;
 						
 				}
 				
