@@ -35,6 +35,15 @@ final class Give_Moneris {
 	private static $instance;
 
 	/**
+	 * Notices (array)
+	 *
+	 * @since 1.0.0
+	 *
+	 * @var array
+	 */
+	public $notices = array();
+
+	/**
 	 * Get instance.
 	 *
 	 * @since  1.0.0
