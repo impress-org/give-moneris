@@ -104,8 +104,8 @@ class Give_Moneris_Gateway {
 		// No errors, proceed.
 		if ( ! $errors ) {
 
-			$donation_amount = $donation_data['price'];
-			
+			$donation_amount = give_format_amount( $donation_data['price'] );
+
 			$args = array(
 				'price'           => $donation_amount,
 				'give_form_title' => $donation_data['post_data']['give-form-title'],
