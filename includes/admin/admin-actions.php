@@ -26,11 +26,11 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return      void
  */
 function give_moneris_process_refund( $donation_id, $new_status, $old_status ) {
-	
-	// Only move forward if refund requested.
+
+    // Only move forward if refund requested.
 	$opt_refund = filter_input( INPUT_POST, 'give_moneris_opt_refund' );
 	$can_refund = ! empty( $opt_refund ) ? give_clean( $opt_refund ) : false;
-	
+
 	// Bailout, if can't refund.
 	if ( ! $can_refund ) {
 		return;
@@ -39,7 +39,7 @@ function give_moneris_process_refund( $donation_id, $new_status, $old_status ) {
 	// Verify statuses.
 	$can_process_refund = 'publish' !== $old_status ? false : true;
 	$can_process_refund = apply_filters( 'give_moneris_can_process_refund', $can_process_refund, $donation_id, $new_status, $old_status );
-	
+
 	// Bail out, if processing refund is not allowed.
 	if ( false === $can_process_refund ) {
 	    return;
@@ -51,7 +51,7 @@ function give_moneris_process_refund( $donation_id, $new_status, $old_status ) {
 	}
 	
 	$transaction_id = give_get_payment_transaction_id( $donation_id );
-	
+
 	// Bail out, if no transaction ID was found.
 	if ( empty( $transaction_id ) ) {
 		return;
@@ -64,13 +64,13 @@ function give_moneris_process_refund( $donation_id, $new_status, $old_status ) {
 		$payment_object = array(
 			'type'               => 'refund',
 			'txn_number'         => give_get_payment_transaction_id( $donation_id ),
-			'order_id'           => $donation_id,
+			'order_id'           => give_moneris_get_unique_donation_id( $donation_id ),
 			'cust_id'            => give_get_payment_donor_id( $donation_id ),
 			'amount'             => give_moneris_get_formatted_donation_amount( $donation_id ),
 			'crypt_type'         => 7, // @todo provide a filter to change the crypt type.
 			'dynamic_descriptor' => give_moneris_get_statement_descriptor(),
 		);
-		
+
 		$transaction_object = new Give_Moneris\mpgTransaction( $payment_object );
 		$request_object     = new Give_Moneris\mpgRequest( $transaction_object );
 		$request_object->setProcCountryCode( give_get_option( 'base_country' ) );
