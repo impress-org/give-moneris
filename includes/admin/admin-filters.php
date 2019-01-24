@@ -59,3 +59,47 @@ function give_moneris_plugin_action_links( $actions ) {
 
 add_filter( 'plugin_action_links_' . GIVE_MONERIS_PLUGIN_BASENAME, 'give_moneris_plugin_action_links' );
 
+/**
+ * Plugin row meta links
+ *
+ * @param array $plugin_meta An array of the plugin's metadata.
+ * @param string $plugin_file Path to the plugin file, relative to the plugins directory.
+ *
+ * @since 1.0.0
+ *
+ * @return array
+ */
+function give_moneris_plugin_row_meta( $plugin_meta, $plugin_file ) {
+
+	if ( $plugin_file !== GIVE_MONERIS_PLUGIN_BASENAME ) {
+		return $plugin_meta;
+	}
+
+	$new_meta_links = array(
+		sprintf(
+			'<a href="%1$s" target="_blank">%2$s</a>',
+			esc_url( add_query_arg( array(
+					'utm_source'   => 'plugins-page',
+					'utm_medium'   => 'plugin-row',
+					'utm_campaign' => 'admin',
+				), 'http://docs.givewp.com/addon-moneris' )
+			),
+			__( 'Documentation', 'give-moneris' )
+		),
+		sprintf(
+			'<a href="%1$s" target="_blank">%2$s</a>',
+			esc_url( add_query_arg( array(
+					'utm_source'   => 'plugins-page',
+					'utm_medium'   => 'plugin-row',
+					'utm_campaign' => 'admin',
+				), 'https://givewp.com/addons/' )
+			),
+			__( 'Add-ons', 'give-moneris' )
+		),
+	);
+
+	return array_merge( $plugin_meta, $new_meta_links );
+}
+
+add_filter( 'plugin_row_meta', 'give_moneris_plugin_row_meta', 10, 2 );
+
