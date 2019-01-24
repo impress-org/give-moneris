@@ -150,3 +150,7 @@ msgstr ""
 #: includes/admin/class-give-moneris-admin-settings.php:86
 msgid "This option will enable the billing details section for Moneris which requires the donor's address to complete the donation. These fields are not required by Moneris to process the transaction, but you may have the need to collect the data."
 msgstr ""
+
+#: includes/admin/class-give-moneris-admin-settings.php:116
+msgid "Moneris Settings"
+msgstr ""

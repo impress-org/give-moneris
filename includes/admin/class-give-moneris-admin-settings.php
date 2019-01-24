@@ -113,7 +113,7 @@ if ( ! class_exists( 'Give_Moneris_Admin_Settings' ) ) {
 		 */
 		public function register_sections( $sections ) {
 			
-			$sections['moneris-settings'] = __( 'Moneris Settings', 'give-square' );
+			$sections['moneris-settings'] = __( 'Moneris Settings', 'give-moneris' );
 			
 			return $sections;
 		}
