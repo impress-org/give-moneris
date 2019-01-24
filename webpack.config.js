@@ -77,18 +77,18 @@ const config = {
 			},
 
 			// Image files.
-			{
-				test: /\.(png|jpe?g|gif|svg)$/,
-				use: [
-					{
-						loader: 'file-loader',
-						options: {
-							name: 'images/[name].[ext]',
-							publicPath: '../'
-						}
-					}
-				]
-			}
+			// {
+			// 	test: /\.(png|jpe?g|gif|svg)$/,
+			// 	use: [
+			// 		{
+			// 			loader: 'file-loader',
+			// 			options: {
+			// 				name: 'images/[name].[ext]',
+			// 				publicPath: '../'
+			// 			}
+			// 		}
+			// 	]
+			// }
 		]
 	},
 
