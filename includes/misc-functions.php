@@ -3,7 +3,7 @@
  * Miscellaneous Functions.
  *
  * @package   Give
- * @copyright Copyright (c) 2018, WordImpress
+ * @copyright Copyright (c) 2018, GiveWP
  * @license   https://opensource.org/licenses/gpl-license GNU Public License
  * @since     1.0.0
  */

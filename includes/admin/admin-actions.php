@@ -3,7 +3,7 @@
  * Admin Actions
  *
  * @package   Give-Moneris
- * @copyright Copyright (c) 2019, WordImpress
+ * @copyright Copyright (c) 2019, GiveWP
  * @license   https://opensource.org/licenses/gpl-license GNU Public License
  * @since     1.0.0
  */
