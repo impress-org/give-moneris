@@ -1,0 +1,152 @@
+# Copyright (C) 2019 Give-Moneris
+# This file is distributed under the same license as the Give-Moneris package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Give-Moneris\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language-Team: GiveWP <info@givewp.com>\n"
+"Report-Msgid-Bugs-To: https://github.com/impress-org/give-moneris/issues/new\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. translators: 1. Strong Text, 2. Intro Text, 3. URL, 4. Plugin Name, 5. End Text.
+#. translators: 1. Strong Text, 2. Intro Text, 3. URL, 4. Plugin Name, 5. Plugin Text, 6. Plugin Version, 7. End Text
+#. translators: 1. Strong Text, 2. Intro Text, 3. URL, 4. PHP text, 5. Min Plugin Version, 6. End Text
+#: give-moneris.php:197, give-moneris.php:236, give-moneris.php:257
+msgid "Activation Error:"
+msgstr ""
+
+#: give-moneris.php:198, give-moneris.php:237, give-moneris.php:258
+msgid "You must have the"
+msgstr ""
+
+#: give-moneris.php:200, give-moneris.php:239
+msgid "Give"
+msgstr ""
+
+#: give-moneris.php:201
+msgid "plugin installed and activated for Give - Moneris to activate."
+msgstr ""
+
+#: give-moneris.php:240
+msgid "core version"
+msgstr ""
+
+#: give-moneris.php:242
+msgid "for the Give - Moneris add-on to activate."
+msgstr ""
+
+#: give-moneris.php:260
+msgid "PHP version"
+msgstr ""
+
+#: give-moneris.php:262
+msgid "or above for the Give - Moneris gateway add-on to activate."
+msgstr ""
+
+#: give-moneris.php:341
+msgid "Moneris Gateway"
+msgstr ""
+
+#: includes/class-give-moneris-gateway.php:179, includes/class-give-moneris-gateway.php:201, includes/class-give-moneris-gateway.php:225, includes/admin/admin-actions.php:99
+msgid "Moneris Error"
+msgstr ""
+
+#. translators: %s Exception error message.
+#. translators: %s Exception error message.
+#: includes/class-give-moneris-gateway.php:182, includes/class-give-moneris-gateway.php:204
+msgid "The Moneris Gateway declined the donation with an error. Details: %s"
+msgstr ""
+
+#: includes/class-give-moneris-gateway.php:188, includes/class-give-moneris-gateway.php:210
+msgid "Payment Declined. Please try again."
+msgstr ""
+
+#. translators: %s Exception error message.
+#: includes/class-give-moneris-gateway.php:228
+msgid "The Moneris Gateway returned an error while processing a donation. Details: %s"
+msgstr ""
+
+#: includes/class-give-moneris-gateway.php:234
+msgid "Incomplete Payment Recorded. Please try again."
+msgstr ""
+
+#: includes/misc-functions.php:29
+msgid "Donation"
+msgstr ""
+
+#. translators: 1. Refund ID
+#: includes/admin/admin-actions.php:90
+msgid "Payment refunded in Moneris with transaction id: %s"
+msgstr ""
+
+#. translators: 1. Error Message, 2. Exception Message, 3. Code Text, 4. Code Message.
+#: includes/admin/admin-actions.php:103
+msgid "The Moneris payment gateway returned an error while refunding a donation. Message:"
+msgstr ""
+
+#: includes/admin/admin-actions.php:105
+msgid "Code:"
+msgstr ""
+
+#: includes/admin/admin-actions.php:137
+msgid "Refund Charge in Moneris?"
+msgstr ""
+
+#: includes/admin/admin-filters.php:29
+msgid "Moneris - Credit Card"
+msgstr ""
+
+#: includes/admin/admin-filters.php:30
+msgid "Credit Card"
+msgstr ""
+
+#: includes/admin/admin-filters.php:53
+msgid "Settings"
+msgstr ""
+
+#: includes/admin/admin-filters.php:87
+msgid "Documentation"
+msgstr ""
+
+#: includes/admin/admin-filters.php:97
+msgid "Add-ons"
+msgstr ""
+
+#: includes/admin/class-give-moneris-admin-settings.php:66
+msgid "Access Token"
+msgstr ""
+
+#: includes/admin/class-give-moneris-admin-settings.php:67
+msgid "Enter the Access Token provided by Moneris for a specific country environment. Please confirm the base country you selected."
+msgstr ""
+
+#: includes/admin/class-give-moneris-admin-settings.php:72
+msgid "Store ID"
+msgstr ""
+
+#: includes/admin/class-give-moneris-admin-settings.php:73
+msgid "Enter the Store ID for which you want to accept the donations."
+msgstr ""
+
+#: includes/admin/class-give-moneris-admin-settings.php:78
+msgid "Statement Descriptor"
+msgstr ""
+
+#: includes/admin/class-give-moneris-admin-settings.php:79
+msgid "This is the text that appears on your donor's bank statements. Statement descriptors are limited to 22 characters including <code>/</code>, cannot use the special characters <code><</code>, <code>></code>, <code>'</code>, or <code>\"</code>, and must not consist solely of numbers. This is typically the name of your website or organization."
+msgstr ""
+
+#: includes/admin/class-give-moneris-admin-settings.php:85
+msgid "Collect Billing Details"
+msgstr ""
+
+#: includes/admin/class-give-moneris-admin-settings.php:86
+msgid "This option will enable the billing details section for Moneris which requires the donor's address to complete the donation. These fields are not required by Moneris to process the transaction, but you may have the need to collect the data."
+msgstr ""
