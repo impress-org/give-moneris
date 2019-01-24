@@ -186,7 +186,10 @@ class Give_Moneris_Gateway {
 						
 						// Set Error to notify donor.
 						give_set_error( 'give_moneris_gateway_error', __( 'Payment Declined. Please try again.', 'give-moneris' ) );
-						
+
+						// Set status to failed.
+						give_update_payment_status( $donation_id, 'failed' );
+
 						// Send user back to checkout.
 						give_send_back_to_checkout( '?payment-mode=moneris' );
 						break;
@@ -205,6 +208,9 @@ class Give_Moneris_Gateway {
 
 						// Set Error to notify donor.
 						give_set_error( 'give_moneris_gateway_error', __( 'Payment Declined. Please try again.', 'give-moneris' ) );
+
+						// Set status to failed.
+						give_update_payment_status( $donation_id, 'failed' );
 
 						// Send user back to checkout.
 						give_send_back_to_checkout( '?payment-mode=moneris' );
@@ -226,7 +232,10 @@ class Give_Moneris_Gateway {
 				
 				// Set Error to notify donor.
 				give_set_error( 'give_moneris_gateway_error', __( 'Incomplete Payment Recorded. Please try again.', 'give-moneris' ) );
-				
+
+				// Set status to failed.
+				give_update_payment_status( $donation_id, 'failed' );
+
 				// Send user back to checkout.
 				give_send_back_to_checkout( '?payment-mode=moneris' );
 			}
