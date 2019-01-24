@@ -88,6 +88,13 @@ if ( ! class_exists( 'Give_Moneris_Admin_Settings' ) ) {
 							'type' => 'checkbox',
 						),
 						array(
+							'name'  => __( 'Give Moneris Settings Docs Link', 'give-moneris' ),
+							'id'    => 'give_moneris_settings_docs_link',
+							'url'   => esc_url( 'http://docs.givewp.com/addon-moneris' ),
+							'title' => __( 'Moneris Payment Gateway', 'give-moneris' ),
+							'type'  => 'give_docs_link',
+						),
+						array(
 							'id'   => 'give_title_moneris',
 							'type' => 'sectionend',
 						),
