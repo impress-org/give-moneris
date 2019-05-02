@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Give - Moneris
- * Plugin URI:  https://givewp.com
+ * Plugin URI:  https://givewp.com/addons/moneris-gateway/
  * Description: Adds support to accept donations via the Moneris Payment gateway.
  * Version:     1.0.0
  * Author:      GiveWP
