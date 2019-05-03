@@ -2,7 +2,7 @@
 Contributors: givewp
 Tags: donations, donation, ecommerce, e-commerce, fundraising, fundraiser, moneris, gateway
 Requires at least: 4.8
-Tested up to: 5.0
+Tested up to: 5.2
 Stable tag: 1.0.0
 Requires Give: 2.3.0
 License: GPLv3
