@@ -1,4 +1,4 @@
-# Copyright (C) 2019 Give-Moneris
+# Copyright (C) 2020 Give-Moneris
 # This file is distributed under the same license as the Give-Moneris package.
 msgid ""
 msgstr ""
@@ -151,6 +151,14 @@ msgstr ""
 msgid "This option will enable the billing details section for Moneris which requires the donor's address to complete the donation. These fields are not required by Moneris to process the transaction, but you may have the need to collect the data."
 msgstr ""
 
-#: includes/admin/class-give-moneris-admin-settings.php:116
+#: includes/admin/class-give-moneris-admin-settings.php:91
+msgid "Give Moneris Settings Docs Link"
+msgstr ""
+
+#: includes/admin/class-give-moneris-admin-settings.php:94
+msgid "Moneris Payment Gateway"
+msgstr ""
+
+#: includes/admin/class-give-moneris-admin-settings.php:123
 msgid "Moneris Settings"
 msgstr ""
