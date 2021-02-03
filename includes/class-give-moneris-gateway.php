@@ -176,28 +176,6 @@ class Give_Moneris_Gateway {
 
 						break;
 
-					case $response_code >= 50 && $response_code <= 99:
-
-						// Something went wrong outside of Moneris.
-						give_record_gateway_error(
-							__( 'Moneris Error', 'give-moneris' ),
-							sprintf(
-							/* translators: %s Exception error message. */
-								__( 'The Moneris Gateway declined the donation with an error. Details: %s', 'give-moneris' ),
-								$response->getMessage()
-							)
-						);
-
-						// Set Error to notify donor.
-						give_set_error( 'give_moneris_gateway_error', __( 'Payment Declined. Please try again.', 'give-moneris' ) );
-
-						// Set status to failed.
-						give_update_payment_status( $donation_id, 'failed' );
-
-						// Send user back to checkout.
-						give_send_back_to_checkout( '?payment-mode=moneris' );
-						break;
-
 					default:
 
 						// Something went wrong outside of Moneris.
