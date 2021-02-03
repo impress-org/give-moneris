@@ -116,12 +116,12 @@ class Give_Moneris_Gateway {
 				'purchase_key'    => $donation_data['purchase_key'],
 				'currency'        => give_get_currency( $donation_data['post_data']['give-form-id'], $donation_data ),
 				'user_info'       => $donation_data['user_info'],
-				'status'          => 'pending'
+				'status'          => 'pending',
 			);
 
 			// Create a pending donation.
 			$donation_id = give_insert_payment( $args );
-			
+
 			$exp_month   = sprintf( '%02d', $donation_data['card_info']['card_exp_month'] );
 			$exp_year    = substr( $donation_data['card_info']['card_exp_year'], 2, 2 );
 			$expiry_date = "{$exp_year}{$exp_month}";
@@ -140,7 +140,11 @@ class Give_Moneris_Gateway {
 			$transaction_object = new Give_Moneris\mpgTransaction( $payment_object );
 			$request_object     = new Give_Moneris\mpgRequest( $transaction_object );
 			$request_object->setProcCountryCode( give_get_option( 'base_country' ) );
-			$request_object->setTestMode( give_is_test_mode() );
+
+			// Test mode enabled?
+			if ( give_is_test_mode() ) {
+				$request_object->setTestMode( true );
+			}
 
 			$https_post_object = new Give_Moneris\mpgHttpsPost( $this->store_id, $this->access_token, $request_object );
 			$response          = $https_post_object->getMpgResponse();
