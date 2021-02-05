@@ -19,15 +19,15 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  */
 if ( ! class_exists( 'Give_Moneris_Admin_Settings' ) ) {
-	
+
 	/**
 	 * Class Give_Moneris_Admin_Settings
 	 *
 	 * @since 1.0.0
 	 */
 	class Give_Moneris_Admin_Settings {
-		
-		
+
+
 		/**
 		 * Give_Moneris_Admin_Settings constructor.
 		 *
@@ -35,12 +35,12 @@ if ( ! class_exists( 'Give_Moneris_Admin_Settings' ) ) {
 		 * @access public
 		 */
 		public function __construct() {
-			
+
 			add_filter( 'give_get_sections_gateways', array( $this, 'register_sections' ) );
 			add_action( 'give_get_settings_gateways', array( $this, 'register_settings' ) );
 		}
-		
-		
+
+
 		/**
 		 * Register Admin Settings.
 		 *
@@ -52,11 +52,11 @@ if ( ! class_exists( 'Give_Moneris_Admin_Settings' ) ) {
 		 * @return array
 		 */
 		function register_settings( $settings ) {
-			
+
 			switch ( give_get_current_setting_section() ) {
-				
+
 				case 'moneris-settings':
-					
+
 					$settings = array(
 						array(
 							'id'   => 'give_title_moneris',
@@ -99,15 +99,15 @@ if ( ! class_exists( 'Give_Moneris_Admin_Settings' ) ) {
 							'type' => 'sectionend',
 						),
 					);
-					
+
 					break;
-				
+
 			}// End switch().
-			
+
 			return $settings;
 		}
-		
-		
+
+
 		/**
 		 * Register Section for Gateway Settings.
 		 *
@@ -119,13 +119,13 @@ if ( ! class_exists( 'Give_Moneris_Admin_Settings' ) ) {
 		 * @return mixed
 		 */
 		public function register_sections( $sections ) {
-			
-			$sections['moneris-settings'] = __( 'Moneris Settings', 'give-moneris' );
-			
+
+			$sections['moneris-settings'] = __( 'Moneris', 'give-moneris' );
+
 			return $sections;
 		}
-		
-		
+
+
 	}
 }
 
