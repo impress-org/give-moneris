@@ -82,6 +82,17 @@ if ( ! class_exists( 'Give_Moneris_Admin_Settings' ) ) {
 							'default' => give_moneris_get_default_statement_descriptor(),
 						),
 						array(
+							'name'    => __( 'CVD Validation', 'give-moneris' ),
+							'desc'    => __( 'The Card Validation Digits (CVD) value refers to the numbers appearing on the back of the credit card rather than the numbers imprinted on the front1. It is an optional fraud prevention tool that enables merchants to verify data provided by the cardholder at transaction time. This data is submitted along with the transaction to the issuing bank, which provides a response indicating whether the data is a match.', 'give-moneris' ),
+							'id'      => 'give_moneris_cvd_validation',
+							'type'    => 'radio_inline',
+							'options' => [
+								'enabled'  => __( 'Enabled', 'give' ),
+								'disabled' => __( 'Disabled', 'give' ),
+							],
+							'default' => 'enabled',
+						),
+						array(
 							'name' => __( 'Collect Billing Details', 'give-moneris' ),
 							'desc' => __( 'This option will enable the billing details section for Moneris which requires the donor\'s address to complete the donation. These fields are not required by Moneris to process the transaction, but you may have the need to collect the data.', 'give-moneris' ),
 							'id'   => 'give_moneris_collect_billing_details',
