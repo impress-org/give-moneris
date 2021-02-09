@@ -137,25 +137,22 @@ class Give_Moneris_Gateway {
 				'dynamic_descriptor' => give_moneris_get_statement_descriptor(),
 			);
 
-
 			$transaction_object = new Give_Moneris\mpgTransaction( $payment_object );
 			$request_object     = new Give_Moneris\mpgRequest( $transaction_object );
 			$request_object->setProcCountryCode( give_get_option( 'base_country' ) );
 
-			$cvd_validation_option = give_is_setting_enabled( give_get_option('give_moneris_cvd_validation', 'disabled'));
-
-			if($cvd_validation_option) {
+			// CVD Validation option enabled?
+			$cvd_validation_option = give_is_setting_enabled( give_get_option( 'give_moneris_cvd_validation', 'disabled' ) );
+			if ( $cvd_validation_option ) {
 				$cvd_object = array(
-					'cvd_indicator'       => '1',
-					'cvd_value'          => $donation_data['card_info']['card_cvc'],
+					'cvd_indicator' => '1',
+					'cvd_value'     => $donation_data['card_info']['card_cvc'],
 				);
 				// Set CVD (Card Validation Digits).
-				$mpg_cvd_info = new Give_Moneris\mpgCvdInfo($cvd_object);
+				$mpg_cvd_info = new Give_Moneris\mpgCvdInfo( $cvd_object );
 				// Add to transaction object.
-				$transaction_object->setCvdInfo($mpg_cvd_info);
+				$transaction_object->setCvdInfo( $mpg_cvd_info );
 			}
-
-
 
 			// Test mode enabled?
 			if ( give_is_test_mode() ) {
