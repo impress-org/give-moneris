@@ -83,7 +83,7 @@ if ( ! class_exists( 'Give_Moneris_Admin_Settings' ) ) {
 						),
 						array(
 							'name'    => __( 'CVD Validation', 'give-moneris' ),
-							'desc'    => __( 'The Card Validation Digits (CVD) value refers to the numbers appearing on the back of the credit card rather than the numbers imprinted on the front1. It is an optional fraud prevention tool that enables merchants to verify data provided by the cardholder at transaction time. This data is submitted along with the transaction to the issuing bank, which provides a response indicating whether the data is a match.', 'give-moneris' ),
+							'desc'    => __( 'The Card Validation Digits (CVD) value refers to the numbers appearing on the back of the credit card rather than the numbers imprinted on the front. It is an optional fraud prevention tool that enables merchants to verify data provided by the cardholder at transaction time. This data is submitted along with the transaction to the issuing bank, which provides a response indicating whether the data is a match.', 'give-moneris' ),
 							'id'      => 'give_moneris_cvd_validation',
 							'type'    => 'radio_inline',
 							'options' => [
