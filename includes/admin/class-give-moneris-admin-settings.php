@@ -19,15 +19,15 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  */
 if ( ! class_exists( 'Give_Moneris_Admin_Settings' ) ) {
-	
+
 	/**
 	 * Class Give_Moneris_Admin_Settings
 	 *
 	 * @since 1.0.0
 	 */
 	class Give_Moneris_Admin_Settings {
-		
-		
+
+
 		/**
 		 * Give_Moneris_Admin_Settings constructor.
 		 *
@@ -35,12 +35,12 @@ if ( ! class_exists( 'Give_Moneris_Admin_Settings' ) ) {
 		 * @access public
 		 */
 		public function __construct() {
-			
+
 			add_filter( 'give_get_sections_gateways', array( $this, 'register_sections' ) );
 			add_action( 'give_get_settings_gateways', array( $this, 'register_settings' ) );
 		}
-		
-		
+
+
 		/**
 		 * Register Admin Settings.
 		 *
@@ -52,11 +52,11 @@ if ( ! class_exists( 'Give_Moneris_Admin_Settings' ) ) {
 		 * @return array
 		 */
 		function register_settings( $settings ) {
-			
+
 			switch ( give_get_current_setting_section() ) {
-				
+
 				case 'moneris-settings':
-					
+
 					$settings = array(
 						array(
 							'id'   => 'give_title_moneris',
@@ -82,6 +82,17 @@ if ( ! class_exists( 'Give_Moneris_Admin_Settings' ) ) {
 							'default' => give_moneris_get_default_statement_descriptor(),
 						),
 						array(
+							'name'    => __( 'CVD Validation', 'give-moneris' ),
+							'desc'    => __( 'The Card Validation Digits (CVD) value refers to the numbers appearing on the back of the credit card rather than the numbers imprinted on the front. It is an optional fraud prevention tool that enables merchants to verify data provided by the cardholder at transaction time. This data is submitted along with the transaction to the issuing bank, which provides a response indicating whether the data is a match.', 'give-moneris' ),
+							'id'      => 'give_moneris_cvd_validation',
+							'type'    => 'radio_inline',
+							'options' => [
+								'enabled'  => __( 'Enabled', 'give' ),
+								'disabled' => __( 'Disabled', 'give' ),
+							],
+							'default' => 'enabled',
+						),
+						array(
 							'name' => __( 'Collect Billing Details', 'give-moneris' ),
 							'desc' => __( 'This option will enable the billing details section for Moneris which requires the donor\'s address to complete the donation. These fields are not required by Moneris to process the transaction, but you may have the need to collect the data.', 'give-moneris' ),
 							'id'   => 'give_moneris_collect_billing_details',
@@ -99,15 +110,15 @@ if ( ! class_exists( 'Give_Moneris_Admin_Settings' ) ) {
 							'type' => 'sectionend',
 						),
 					);
-					
+
 					break;
-				
+
 			}// End switch().
-			
+
 			return $settings;
 		}
-		
-		
+
+
 		/**
 		 * Register Section for Gateway Settings.
 		 *
@@ -119,13 +130,13 @@ if ( ! class_exists( 'Give_Moneris_Admin_Settings' ) ) {
 		 * @return mixed
 		 */
 		public function register_sections( $sections ) {
-			
-			$sections['moneris-settings'] = __( 'Moneris Settings', 'give-moneris' );
-			
+
+			$sections['moneris-settings'] = __( 'Moneris', 'give-moneris' );
+
 			return $sections;
 		}
-		
-		
+
+
 	}
 }
 

@@ -116,12 +116,12 @@ class Give_Moneris_Gateway {
 				'purchase_key'    => $donation_data['purchase_key'],
 				'currency'        => give_get_currency( $donation_data['post_data']['give-form-id'], $donation_data ),
 				'user_info'       => $donation_data['user_info'],
-				'status'          => 'pending'
+				'status'          => 'pending',
 			);
 
 			// Create a pending donation.
 			$donation_id = give_insert_payment( $args );
-			
+
 			$exp_month   = sprintf( '%02d', $donation_data['card_info']['card_exp_month'] );
 			$exp_year    = substr( $donation_data['card_info']['card_exp_year'], 2, 2 );
 			$expiry_date = "{$exp_year}{$exp_month}";
@@ -140,7 +140,24 @@ class Give_Moneris_Gateway {
 			$transaction_object = new Give_Moneris\mpgTransaction( $payment_object );
 			$request_object     = new Give_Moneris\mpgRequest( $transaction_object );
 			$request_object->setProcCountryCode( give_get_option( 'base_country' ) );
-			$request_object->setTestMode( give_is_test_mode() );
+
+			// Test mode enabled?
+			if ( give_is_test_mode() ) {
+				$request_object->setTestMode( true );
+			}
+
+			// CVD Validation option enabled?
+			$cvd_validation_option = give_is_setting_enabled( give_get_option( 'give_moneris_cvd_validation', 'disabled' ) );
+			if ( $cvd_validation_option ) {
+				$cvd_object = array(
+					'cvd_indicator' => '1',
+					'cvd_value'     => $donation_data['card_info']['card_cvc'],
+				);
+				// Set CVD (Card Validation Digits).
+				$mpg_cvd_info = new Give_Moneris\mpgCvdInfo( $cvd_object );
+				// Add to transaction object.
+				$transaction_object->setCvdInfo( $mpg_cvd_info );
+			}
 
 			$https_post_object = new Give_Moneris\mpgHttpsPost( $this->store_id, $this->access_token, $request_object );
 			$response          = $https_post_object->getMpgResponse();
@@ -170,28 +187,6 @@ class Give_Moneris_Gateway {
 							give_send_to_success_page();
 						}
 
-						break;
-
-					case $response_code >= 50 && $response_code <= 99:
-
-						// Something went wrong outside of Moneris.
-						give_record_gateway_error(
-							__( 'Moneris Error', 'give-moneris' ),
-							sprintf(
-							/* translators: %s Exception error message. */
-								__( 'The Moneris Gateway declined the donation with an error. Details: %s', 'give-moneris' ),
-								$response->getMessage()
-							)
-						);
-
-						// Set Error to notify donor.
-						give_set_error( 'give_moneris_gateway_error', __( 'Payment Declined. Please try again.', 'give-moneris' ) );
-
-						// Set status to failed.
-						give_update_payment_status( $donation_id, 'failed' );
-
-						// Send user back to checkout.
-						give_send_back_to_checkout( '?payment-mode=moneris' );
 						break;
 
 					default:
