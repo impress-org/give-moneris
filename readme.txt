@@ -2,8 +2,8 @@
 Contributors: givewp
 Tags: donations, donation, ecommerce, e-commerce, fundraising, fundraiser, moneris, gateway
 Requires at least: 4.8
-Tested up to: 5.4
-Stable tag: 1.0.1
+Tested up to: 5.7
+Stable tag: 1.1.0
 Requires Give: 2.3.0
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
@@ -18,7 +18,7 @@ This plugin requires the Give plugin activated to function properly. When activa
 
 = Minimum Requirements =
 
-* WordPress 4.8 or greater
+* WordPress 5.0 or greater
 * PHP version 5.3 or greater
 * MySQL version 5.0 or greater
 
@@ -37,6 +37,9 @@ The manual installation method involves downloading our donation plugin and uplo
 Automatic updates should work like a charm; as always though, ensure you backup your site just in case.
 
 == Changelog ==
+
+= 1.1.0: March , 2021  =
+* New: Added CVD / CVV (the last-3 numbers on the back of a credit or debit card) validation via the Moneris eFraud API.
 
 = 1.0.1: May 19th, 2020  =
 * Fix: We resolved a bug which was causing amounts over $999.99 to be rejected by the Moneris API due to an incorrect currency format. The Moneris API does not want any thousands separators passed in the payment request. We have removed the thousands separators and tested thoroughly to ensure large amounts are fully supported.
