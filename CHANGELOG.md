@@ -17,4 +17,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Added CVD / CVV validation to the plugin which includes a new option. As well, we cleaned up the code a little bit. (#20)
+-	Added CVD / CVV validation to the plugin which includes a new option. As well, we cleaned up the code a little bit. (#20)
+
+### Changed
+
+-	Switch to Laravel Mix v6 for compiling assets
